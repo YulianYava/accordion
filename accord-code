@@ -1,0 +1,30 @@
+def accordion():
+    sections = [
+        {"title": "Section 1", "content": "Content of Section 1"},
+        {"title": "Section 2", "content": "Content of Section 2"},
+        {"title": "Section 3", "content": "Content of Section 3"},
+    ]
+
+    while True:
+        print("\nSelect a section to expand or type 'q' to quit:")
+        for index, section in enumerate(sections, start=1):
+            print(f"{index}. {section['title']}")
+
+        user_input = input()
+
+        if user_input == 'q':
+            break
+
+        try:
+            section_index = int(user_input) - 1
+            if 0 <= section_index < len(sections):
+                selected_section = sections[section_index]
+                print(f"\n{selected_section['title']}:\n{selected_section['content']}")
+            else:
+                print("Invalid selection. Please choose a valid section.")
+        except ValueError:
+            print("Invalid input. Please enter a number or 'q' to quit.")
+
+
+if __name__ == "__main__":
+    accordion()
